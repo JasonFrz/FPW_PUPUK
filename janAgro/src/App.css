@@ -1,42 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-.card {
-  padding: 2em;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.read-the-docs {
-  color: #888;
+::-webkit-scrollbar-track {
+  background: #1a4c3e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #4ade80, #22d3ee);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #22d3ee, #4ade80);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4ade80 #1a4c3e;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid #4ade80;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(74, 222, 128, 0.3);
+  color: #1a4c3e;
+}
+
+::-moz-selection {
+  background: rgba(74, 222, 128, 0.3);
+  color: #1a4c3e;
 }
