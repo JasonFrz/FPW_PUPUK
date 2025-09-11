@@ -90,6 +90,12 @@ function Navbar({ currentPage, onNavigate }) {
                   >
                     🔐 Login
                   </button>
+                  <button 
+                    onClick={() => handleNavClick('register')}
+                    className="dropdown-item"
+                  >
+                    Register
+                  </button>
                 </div>
               )}
             </div>

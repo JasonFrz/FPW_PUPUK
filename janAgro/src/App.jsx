@@ -5,6 +5,8 @@ import Shop from './components/pages/Shop';
 import About from './components/pages/About';
 import Footer from './components/Footer';
 import Profile from './components/pages/Profile'
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 import './App.css';
 
 function App() {
@@ -16,6 +18,10 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'login':
+        return <Login onNavigate={handleNavigate} />;
+      case 'register':
+        return <Register onNavigate={handleNavigate} />;
       case 'home':
         return <HomepageContent />;
       case 'shop':
