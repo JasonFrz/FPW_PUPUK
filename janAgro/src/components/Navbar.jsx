@@ -1,8 +1,9 @@
-import React, { useState, /*useEffect*/ } from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
 function Navbar({ currentPage, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   // const [scrollY, setScrollY] = useState(0);
 
   // useEffect(() => {
@@ -15,17 +16,21 @@ function Navbar({ currentPage, onNavigate }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
   const handleNavClick = (page) => {
     onNavigate(page);
     setIsMenuOpen(false);
+    setIsProfileDropdownOpen(false);
   };
 
   return (
-    <nav className="navbar" style={{ transform: `translateY(${Math.min(scrollY * 0.5, 50)}px)` }}>
+    <nav className="navbar">
       <div className="navbar-brand">
         <button onClick={() => handleNavClick('home')} className="brand-button">
           <img className="plant-icon" src="src/image/janAgro.png" alt="" />
-          {/* <span className="plant-icon">🌱</span> */}
           Jan Agro Fertilizers
         </button>
       </div>
@@ -66,22 +71,29 @@ function Navbar({ currentPage, onNavigate }) {
               🌾 Services
             </button>
           </li>
-          <li>
+          <li className="profile-item">
             <button 
               onClick={() => handleNavClick('profile')}
               className={currentPage === 'profile' ? 'active' : ''}
             >
               👤 Profile
             </button>
+            <div className="profile-dropdown">
+              <button className="dropdown-toggle" onClick={toggleProfileDropdown}>
+                <img src="src/image/down.png" alt="" width="18px" height="18px"/>
+              </button>
+              {isProfileDropdownOpen && (
+                <div className="dropdown-menu">
+                  <button 
+                    onClick={() => handleNavClick('login')}
+                    className="dropdown-item"
+                  >
+                    🔐 Login
+                  </button>
+                </div>
+              )}
+            </div>
           </li>
-          {/* <li>
-            <button 
-              onClick={() => handleNavClick('contact')}
-              className={currentPage === 'contact' ? 'active' : ''}
-            >
-              📞 Contact
-            </button>
-          </li> */}
         </ul>
       </div>
     </nav>
