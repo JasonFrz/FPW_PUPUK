@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HomepageContent from './components/HomepageContent';
 import Shop from './components/Shop';
-
+import About from './components/About';
 import Footer from './components/Footer';
 import './App.css';
 
