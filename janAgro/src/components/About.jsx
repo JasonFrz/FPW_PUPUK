@@ -5,7 +5,7 @@ function About() {
   const teamMembers = [
     {
       id: 1,
-      name: "Sarah Green",
+      name: "Janneman Alamsjah",
       position: "Founder & CEO",
       icon: "👩‍🌾",
       bio: "15 years of organic farming experience",
@@ -13,7 +13,7 @@ function About() {
     },
     {
       id: 2,
-      name: "Mike Plant",
+      name: "Jason Juan",
       position: "Head of Research",
       icon: "👨‍🔬",
       bio: "PhD in Plant Nutrition Science",
@@ -21,16 +21,16 @@ function About() {
     },
     {
       id: 3,
-      name: "Emma Bloom",
-      position: "Garden Specialist",
+      name: "Hans Christian",
+      position: "Specialist Turu",
       icon: "👩‍🌱",
       bio: "Master Gardener with 12 years experience",
       specialty: "Customer Support"
     },
     {
       id: 4,
-      name: "David Soil",
-      position: "Sustainability Director",
+      name: "Irvin Caesar Young",
+      position: "Jadi Irvin",
       icon: "👨‍🏫",
       bio: "Environmental Science Expert",
       specialty: "Eco-Friendly Practices"

@@ -39,7 +39,7 @@ function HomepageContent() {
           </div>
           <h1 className="hero-title">
             Grow Your Dreams with 
-            <span className="gradient-text"> GreenGrow</span>
+            <span className="gradient-text"> Jan Agro</span>
           </h1>
           <p className="hero-subtitle">
             Premium fertilizers that bring life to your garden. 

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, /*useEffect*/ } from 'react';
 import './Navbar.css';
 
 function Navbar({ currentPage, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => setScrollY(window.scrollY);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,7 +26,7 @@ function Navbar({ currentPage, onNavigate }) {
         <button onClick={() => handleNavClick('home')} className="brand-button">
           <img className="plant-icon" src="src/image/janAgro.png" alt="" />
           {/* <span className="plant-icon">🌱</span> */}
-          GreenGrow Fertilizers
+          Jan Agro Fertilizers
         </button>
       </div>
       <button className="navbar-toggler" onClick={toggleMenu}>
@@ -74,14 +74,14 @@ function Navbar({ currentPage, onNavigate }) {
               👤 Profile
             </button>
           </li>
-          <li>
+          {/* <li>
             <button 
               onClick={() => handleNavClick('contact')}
               className={currentPage === 'contact' ? 'active' : ''}
             >
               📞 Contact
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

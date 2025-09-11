@@ -4,6 +4,7 @@ import HomepageContent from './components/HomepageContent';
 import Shop from './components/Shop';
 import About from './components/About';
 import Footer from './components/Footer';
+import Profile from './components/Profile'
 import './App.css';
 
 function App() {

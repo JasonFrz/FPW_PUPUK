@@ -5,7 +5,8 @@ function Shop() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
-
+  const [searchQuery, setSearchQuery] = useState('');
+  
   const products = [
     {
       id: 1,
@@ -100,9 +101,16 @@ function Shop() {
     { id: 'herb', name: 'Herbs', icon: '🌿' }
   ];
 
-  const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
+  // const filteredProducts = selectedCategory === 'all' 
+  //   ? products 
+  //   : products.filter(product => product.category === selectedCategory);
+
+  const filteredProducts = products
+  .filter(product => selectedCategory === 'all' || product.category === selectedCategory)
+  .filter(product => 
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -144,6 +152,8 @@ function Shop() {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+
+  
   return (
     <div className="shop-page">
       {/* Floating Plants */}
@@ -164,6 +174,17 @@ function Shop() {
         >
           🛒 Cart ({getTotalItems()})
         </button>
+      </div>
+
+      {/* Search Bar */}
+      <div className="search-bar-container">
+        <input
+          type="text"
+          placeholder="🔍 Search for fertilizers..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="search-bar"
+        />
       </div>
 
       {/* Category Filter */}
