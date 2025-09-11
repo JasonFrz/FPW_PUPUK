@@ -2,6 +2,7 @@ import React from 'react';
 import './About.css';
 
 function About() {
+   // ini dibuat database nnti
   const teamMembers = [
     {
       id: 1,
@@ -37,6 +38,7 @@ function About() {
     }
   ];
 
+  // ini dibuat database nnti
   const milestones = [
     { year: "2008", event: "🌱 Company Founded", description: "Started in Sarah's backyard" },
     { year: "2012", event: "🏆 First Award", description: "Best Organic Fertilizer Award" },
@@ -46,6 +48,7 @@ function About() {
     { year: "2023", event: "🎯 Carbon Negative", description: "Became carbon negative company" }
   ];
 
+   // ini dibuat database nnti
   const values = [
     {
       icon: "🌱",

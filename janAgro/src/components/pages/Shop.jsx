@@ -7,6 +7,7 @@ function Shop() {
   const [showCart, setShowCart] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
+   // ini dibuat database nnti
   const products = [
     {
       id: 1,
@@ -90,6 +91,7 @@ function Shop() {
     }
   ];
 
+   // ini dibuat database nnti
   const categories = [
     { id: 'all', name: 'All Products', icon: '🌱' },
     { id: 'organic', name: 'Organic', icon: '🌱' },
