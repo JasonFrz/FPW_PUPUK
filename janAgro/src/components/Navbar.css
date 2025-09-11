@@ -14,7 +14,7 @@
   transition: all 0.3s ease;
 }
 
-.navbar-brand a {
+.brand-button {
   color: white;
   text-decoration: none;
   font-size: 1.8rem;
@@ -22,6 +22,15 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.brand-button:hover {
+  color: #4ade80;
+  transform: scale(1.05);
 }
 
 .plant-icon {
@@ -57,7 +66,7 @@
   padding: 0;
 }
 
-.navbar-links a {
+.navbar-links button {
   color: white;
   text-decoration: none;
   font-size: 1.1rem;
@@ -67,12 +76,27 @@
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.navbar-links a:hover {
+.navbar-links button:hover {
   background: rgba(74, 222, 128, 0.2);
   color: #4ade80;
   transform: translateY(-2px);
+}
+
+.navbar-links button.active {
+  background: rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  border: 1px solid #4ade80;
+}
+
+.navbar-links button:focus {
+  outline: 2px solid #4ade80;
+  outline-offset: 2px;
 }
 
 /* Mobile Responsive */
@@ -101,10 +125,12 @@
     gap: 0;
   }
 
-  .navbar-links a {
+  .navbar-links button {
     display: block;
     padding: 1rem 2rem;
     border-radius: 0;
+    width: 100%;
+    text-align: left;
   }
 }
 
@@ -113,7 +139,7 @@
     padding: 1rem;
   }
   
-  .navbar-brand a {
+  .brand-button {
     font-size: 1.5rem;
   }
 }

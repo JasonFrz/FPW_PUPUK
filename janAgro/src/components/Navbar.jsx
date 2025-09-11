@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ currentPage, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
@@ -15,24 +15,73 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = (page) => {
+    onNavigate(page);
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar" style={{ transform: `translateY(${Math.min(scrollY * 0.5, 50)}px)` }}>
       <div className="navbar-brand">
-        <a href="#home">
+        <button onClick={() => handleNavClick('home')} className="brand-button">
           <img className="plant-icon" src="src/image/janAgro.png" alt="" />
-          {/* <span className="plant-icon" ></span> */}
+          {/* <span className="plant-icon">🌱</span> */}
           GreenGrow Fertilizers
-        </a>
+        </button>
       </div>
       <button className="navbar-toggler" onClick={toggleMenu}>
         {isMenuOpen ? '✕' : '☰'}
       </button>
       <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
         <ul>
-          <li><a href="#home" onClick={() => setIsMenuOpen(false)}>🏠 Home</a></li>
-          <li><a href="#about" onClick={() => setIsMenuOpen(false)}>🌿 About</a></li>
-          <li><a href="#services" onClick={() => setIsMenuOpen(false)}>🌾 Products</a></li>
-          <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>📞 Contact</a></li>
+          <li>
+            <button 
+              onClick={() => handleNavClick('home')}
+              className={currentPage === 'home' ? 'active' : ''}
+            >
+              🏠 Home
+            </button>
+          </li>
+          <li>
+            <button 
+              onClick={() => handleNavClick('shop')}
+              className={currentPage === 'shop' ? 'active' : ''}
+            >
+              🛒 Shop
+            </button>
+          </li>
+          <li>
+            <button 
+              onClick={() => handleNavClick('about')}
+              className={currentPage === 'about' ? 'active' : ''}
+            >
+              🌿 About
+            </button>
+          </li>
+          <li>
+            <button 
+              onClick={() => handleNavClick('services')}
+              className={currentPage === 'services' ? 'active' : ''}
+            >
+              🌾 Services
+            </button>
+          </li>
+          <li>
+            <button 
+              onClick={() => handleNavClick('profile')}
+              className={currentPage === 'profile' ? 'active' : ''}
+            >
+              👤 Profile
+            </button>
+          </li>
+          <li>
+            <button 
+              onClick={() => handleNavClick('contact')}
+              className={currentPage === 'contact' ? 'active' : ''}
+            >
+              📞 Contact
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
