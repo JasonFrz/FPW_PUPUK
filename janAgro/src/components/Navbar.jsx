@@ -19,7 +19,8 @@ function Navbar() {
     <nav className="navbar" style={{ transform: `translateY(${Math.min(scrollY * 0.5, 50)}px)` }}>
       <div className="navbar-brand">
         <a href="#home">
-          <span className="plant-icon">🌱</span>
+          <img className="plant-icon" src="src/image/janAgro.png" alt="" />
+          {/* <span className="plant-icon" ></span> */}
           GreenGrow Fertilizers
         </a>
       </div>
