@@ -6,7 +6,7 @@ function Shop() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  
+    
    // ini dibuat database nnti
   const products = [
     {

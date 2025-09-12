@@ -39,14 +39,14 @@ function Navbar({ currentPage, onNavigate }) {
       </button>
       <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
         <ul>
-          <li>
+          {/* <li>
             <button 
               onClick={() => handleNavClick('home')}
               className={currentPage === 'home' ? 'active' : ''}
             >
               🏠 Home
             </button>
-          </li>
+          </li> */}
           <li>
             <button 
               onClick={() => handleNavClick('shop')}

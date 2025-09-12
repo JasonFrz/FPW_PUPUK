@@ -22,8 +22,6 @@ function App() {
         return <Login onNavigate={handleNavigate} />;
       case 'register':
         return <Register onNavigate={handleNavigate} />;
-      case 'home':
-        return <HomepageContent />;
       case 'shop':
         return <Shop />;
       case 'about':
