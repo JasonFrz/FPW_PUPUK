@@ -29,7 +29,16 @@ const Profile = () => {
         <ul>
           {data.length > 0 ? (
             data.map(item => (
-              <li key={item._id}>{item.name}</li>
+              <li key={item._id}>
+                {item.name}
+                {item.category}
+                {item.price}
+                {item.image}
+                {item.description}
+                {item.rating}
+                {item.inStock}
+                </li>
+              
             ))
           ) : (
             <p>No data to display TOLOL.</p>

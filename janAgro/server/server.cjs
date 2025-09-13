@@ -19,7 +19,16 @@ const ProdukSchema = new mongoose.Schema({
     }
 });
 
+const CategorySchema = new mongoose.Schema({
+    name: String, 
+    createdDate: {
+        type: Date,
+        default: Date.now
+    }
+});
+
 const Produk = mongoose.model('Produk', ProdukSchema, 'Produk');
+const Category = mongoose.model('Category', CategorySchema, 'Category');
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
@@ -28,10 +37,11 @@ mongoose.connect(process.env.MONGODB_URI)
 
         // Fetch all items from the database
         const items = await Produk.find();
+        const Categories = await Category.find()
         
         // Log the fetched items to the terminal
         console.log('Items in the database:');
-        console.log(items);
+        console.log(items,Categories);
     })
     .catch(err => console.error('MongoDB connection error:', err));
 
@@ -42,6 +52,27 @@ app.get('/api/Produk', async (req, res) => {
         res.json(items);
     } catch (err) {
         res.status(500).json({ message: err.message });
+    }
+});
+
+app.get('/api/Category', async (req, res) => {
+    try {
+        const items = await Category.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.post('/api/Category', async (req, res) => {
+    const newItem = new Category({
+        name: req.body.name
+    });
+    try {
+        const savedItem = await newItem.save();
+        res.status(201).json(savedItem);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
     }
 });
 

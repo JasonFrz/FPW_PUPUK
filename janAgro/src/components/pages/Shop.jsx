@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios'
 import './Shop.css';
 
 function Shop() {
@@ -6,108 +7,37 @@ function Shop() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const [produk, setProduk] = useState([]);
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/Produk');
+        setProduk(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/Category');
+        setCategory(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
     
-   // ini dibuat database nnti
-  const products = [
-    {
-      id: 1,
-      name: "Organic Garden Booster",
-      category: "organic",
-      price: 24.99,
-      image: "🌱",
-      description: "Premium organic fertilizer for all garden plants",
-      rating: 4.8,
-      inStock: true
-    },
-    {
-      id: 2,
-      name: "Rose Bloom Enhancer",
-      category: "flower",
-      price: 18.50,
-      image: "🌹",
-      description: "Specialized fertilizer for beautiful rose blooms",
-      rating: 4.9,
-      inStock: true
-    },
-    {
-      id: 3,
-      name: "Vegetable Growth Formula",
-      category: "vegetable",
-      price: 22.99,
-      image: "🥕",
-      description: "Perfect nutrition for healthy vegetables",
-      rating: 4.7,
-      inStock: true
-    },
-    {
-      id: 4,
-      name: "Lawn Green Master",
-      category: "lawn",
-      price: 29.99,
-      image: "🌿",
-      description: "Keep your lawn green and lush all season",
-      rating: 4.6,
-      inStock: false
-    },
-    {
-      id: 5,
-      name: "Indoor Plant Nutrition",
-      category: "indoor",
-      price: 15.99,
-      image: "🪴",
-      description: "Gentle fertilizer for houseplants",
-      rating: 4.8,
-      inStock: true
-    },
-    {
-      id: 6,
-      name: "Flower Power Mix",
-      category: "flower",
-      price: 26.50,
-      image: "🌺",
-      description: "Vibrant blooms guaranteed",
-      rating: 4.9,
-      inStock: true
-    },
-    {
-      id: 7,
-      name: "Tree & Shrub Food",
-      category: "tree",
-      price: 34.99,
-      image: "🌳",
-      description: "Long-lasting nutrition for trees and shrubs",
-      rating: 4.5,
-      inStock: true
-    },
-    {
-      id: 8,
-      name: "Herb Garden Special",
-      category: "herb",
-      price: 19.99,
-      image: "🌿",
-      description: "Perfect for culinary herbs",
-      rating: 4.7,
-      inStock: true
-    }
-  ];
 
-   // ini dibuat database nnti
-  const categories = [
-    { id: 'all', name: 'All Products', icon: '🌱' },
-    { id: 'organic', name: 'Organic', icon: '🌱' },
-    { id: 'flower', name: 'Flowers', icon: '🌸' },
-    { id: 'vegetable', name: 'Vegetables', icon: '🥕' },
-    { id: 'lawn', name: 'Lawn Care', icon: '🌿' },
-    { id: 'indoor', name: 'Indoor Plants', icon: '🪴' },
-    { id: 'tree', name: 'Trees & Shrubs', icon: '🌳' },
-    { id: 'herb', name: 'Herbs', icon: '🌿' }
-  ];
-
-  // const filteredProducts = selectedCategory === 'all' 
-  //   ? products 
-  //   : products.filter(product => product.category === selectedCategory);
-
-  const filteredProducts = products
+  const filteredProducts = produk
   .filter(product => selectedCategory === 'all' || product.category === selectedCategory)
   .filter(product => 
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -191,7 +121,7 @@ function Shop() {
 
       {/* Category Filter */}
       <div className="category-filter">
-        {categories.map(category => (
+        {category.map(category => (
           <button
             key={category.id}
             className={`category-btn ${selectedCategory === category.id ? 'active' : ''}`}
@@ -251,8 +181,13 @@ function Shop() {
         </div>
       )}
 
+
+
+
+
       {/* Products Grid */}
       <div className="products-grid">
+        
         {filteredProducts.map(product => (
           <div key={product.id} className="product-card">
             <div className="product-image">
@@ -282,6 +217,11 @@ function Shop() {
           </div>
         ))}
       </div>
+
+
+
+
+
 
       {/* Featured Section */}
       <div className="featured-section">
