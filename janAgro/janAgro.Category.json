@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "65123456789abcdef0123456"
+  },
+  "id": "all",
+  "name": "All Products",
+  "icon": "🌱"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef0123457"
+  },
+  "id": "organic",
+  "name": "Organic",
+  "icon": "🌱"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef0123458"
+  },
+  "id": "flower",
+  "name": "Flowers",
+  "icon": "🌸"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef0123459"
+  },
+  "id": "vegetable",
+  "name": "Vegetables",
+  "icon": "🥕"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef012345a"
+  },
+  "id": "lawn",
+  "name": "Lawn Care",
+  "icon": "🌿"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef012345b"
+  },
+  "id": "indoor",
+  "name": "Indoor Plants",
+  "icon": "🪴"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef012345c"
+  },
+  "id": "tree",
+  "name": "Trees & Shrubs",
+  "icon": "🌳"
+},
+{
+  "_id": {
+    "$oid": "65123456789abcdef012345d"
+  },
+  "id": "herb",
+  "name": "Herbs",
+  "icon": "🌿"
+}]

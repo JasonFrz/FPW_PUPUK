@@ -1,0 +1,104 @@
+[{
+  "_id": {
+    "$oid": "68c3c99da36454490e684128"
+  },
+  "id": 1,
+  "name": "Organic Garden Booster",
+  "category": "organic",
+  "price": 24.99,
+  "image": "🌱",
+  "description": "Premium organic fertilizer for all garden plants",
+  "rating": 4.8,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e684129"
+  },
+  "id": 2,
+  "name": "Rose Bloom Enhancer",
+  "category": "flower",
+  "price": 18.5,
+  "image": "🌹",
+  "description": "Specialized fertilizer for beautiful rose blooms",
+  "rating": 4.9,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e68412a"
+  },
+  "id": 3,
+  "name": "Vegetable Growth Formula",
+  "category": "vegetable",
+  "price": 22.99,
+  "image": "🥕",
+  "description": "Perfect nutrition for healthy vegetables",
+  "rating": 4.7,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e68412b"
+  },
+  "id": 4,
+  "name": "Lawn Green Master",
+  "category": "lawn",
+  "price": 29.99,
+  "image": "🌿",
+  "description": "Keep your lawn green and lush all season",
+  "rating": 4.6,
+  "inStock": false
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e68412c"
+  },
+  "id": 5,
+  "name": "Indoor Plant Nutrition",
+  "category": "indoor",
+  "price": 15.99,
+  "image": "🪴",
+  "description": "Gentle fertilizer for houseplants",
+  "rating": 4.8,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e68412d"
+  },
+  "id": 6,
+  "name": "Flower Power Mix",
+  "category": "flower",
+  "price": 26.5,
+  "image": "🌺",
+  "description": "Vibrant blooms guaranteed",
+  "rating": 4.9,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e68412e"
+  },
+  "id": 7,
+  "name": "Tree & Shrub Food",
+  "category": "tree",
+  "price": 34.99,
+  "image": "🌳",
+  "description": "Long-lasting nutrition for trees and shrubs",
+  "rating": 4.5,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c3c99da36454490e68412f"
+  },
+  "id": 8,
+  "name": "Herb Garden Special",
+  "category": "herb",
+  "price": 19.99,
+  "image": "🌿",
+  "description": "Perfect for culinary herbs",
+  "rating": 4.7,
+  "inStock": true
+}]
