@@ -61,4 +61,12 @@
   "id": "herb",
   "name": "Herbs",
   "icon": "🌿"
+},
+{
+  "_id": {
+    "$oid": "68c804568eb2c760686aa138"
+  },
+  "id": "tools",
+  "name": "Tools",
+  "icon": "🧰"
 }]

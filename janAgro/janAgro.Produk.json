@@ -101,4 +101,69 @@
   "description": "Perfect for culinary herbs",
   "rating": 4.7,
   "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c8037c8eb2c760686aa131"
+  },
+  "id": 11,
+  "name": "Garden Shovel",
+  "category": "tools",
+  "price": 15,
+  "image": "🛠️",
+  "description": "Sturdy shovel for planting and digging",
+  "rating": 4.6,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c8037c8eb2c760686aa132"
+  },
+  "id": 12,
+  "name": "Watering Can",
+  "category": "tools",
+  "price": 12.5,
+  "image": "💧",
+  "description": "Perfect for keeping your plants hydrated",
+  "rating": 4.7,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c8037c8eb2c760686aa133"
+  },
+  "id": 13,
+  "name": "Pruning Shears",
+  "category": "tools",
+  "price": 9.9,
+  "image": "✂️",
+  "description": "Sharp blades for trimming branches",
+  "rating": 4.8,
+  "inStock": false
+},
+{
+  "_id": {
+    "$oid": "68c8037c8eb2c760686aa134"
+  },
+  "id": 14,
+  "name": "Garden Gloves",
+  "category": "tools",
+  "price": 6,
+  "image": "🧤",
+  "description": "Protects your hands while gardening",
+  "rating": 4.4,
+  "inStock": true
+},
+{
+  "_id": {
+    "$oid": "68c8037c8eb2c760686aa135"
+  },
+  "id": 15,
+  "name": "Rake",
+  "category": "tools",
+  "price": 18,
+  "image": "🍂",
+  "description": "Ideal for clearing leaves and debris",
+  "rating": 4.5,
+  "inStock": true
 }]
