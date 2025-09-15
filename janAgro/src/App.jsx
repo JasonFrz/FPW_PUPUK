@@ -46,7 +46,8 @@ function App() {
           <div style={{ fontSize: '3rem', marginTop: '2rem' }}>🌱🌿🍀</div>
         </div>;
       default:
-        return <HomepageContent />;
+        //return <HomepageContent />;
+        return <Shop />;
     }
   };
 
