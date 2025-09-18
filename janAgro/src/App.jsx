@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import HomepageContent from "./components/pages/HomepageContent";
 import Shop from "./components/pages/Shop";
@@ -66,7 +66,7 @@ function App() {
 
       
       default:
-        return <HomepageContent />;
+        return <HomepageContent/>;
     }
   };
 

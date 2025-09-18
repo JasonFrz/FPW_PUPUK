@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "68cc20df6ee0de1011da966c"
+  },
+  "nama": "Garden Gloves",
+  "jumlah": 2,
+  "harga": 22222,
+  "keterangan": "test keluar",
+  "createdDate": {
+    "$date": "2025-09-18T15:10:23.699Z"
+  },
+  "__v": 0,
+  "id": 1
+},
+{
+  "_id": {
+    "$oid": "68cc2c020f0526d73b1a1f2d"
+  },
+  "id": 2,
+  "nama": "Garden Shovel",
+  "jumlah": 777000,
+  "harga": 1000,
+  "keterangan": "sekop gede",
+  "createdDate": {
+    "$date": "2025-09-18T15:57:54.654Z"
+  },
+  "__v": 0
+}]

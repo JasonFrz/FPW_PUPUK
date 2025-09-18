@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "68cc1fe5ad2cba5a4dfc1da2"
+  },
+  "nama": "Organic Garden Booster",
+  "jumlah": 2,
+  "harga": 2,
+  "keterangan": "a",
+  "createdDate": {
+    "$date": "2025-09-18T15:06:13.196Z"
+  },
+  "__v": 0,
+  "id": 1
+},
+{
+  "_id": {
+    "$oid": "68cc2bd00f0526d73b1a1f2a"
+  },
+  "id": 2,
+  "nama": "Rose Bloom Enhancer",
+  "jumlah": 6,
+  "harga": 10000,
+  "keterangan": "for u nigga",
+  "createdDate": {
+    "$date": "2025-09-18T15:57:04.081Z"
+  },
+  "__v": 0
+}]

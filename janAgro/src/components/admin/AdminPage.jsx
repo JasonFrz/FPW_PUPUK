@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AdminPage.css";
+import axios from "axios";
 import AdminNavbar from "./AdminNavbar";
 
 function AdminPage() {
@@ -13,24 +14,131 @@ function AdminPage() {
     keterangan: "",
   });
 
+  const [produk, setProduk] = useState([]);
+  //const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/Produk');
+        setProduk(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/BarangMasuk');
+        setBarangMasuk(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/BarangKeluar');
+        setBarangKeluar(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+const postBarangM = async () => {
+  const dataToSend = {
+    ...formData,
+    id: barangMasuk.length + 1,
+    jumlah: Number(formData.jumlah),
+    harga: Number(formData.harga),
+  };
+  try {
+    const response = await axios.post('http://localhost:5000/api/BarangMasuk', dataToSend);
+    console.log('Data posted successfully:', response.data);
+  } catch (error) {
+    console.error('Error posting data:', error);
+  }
+};
+
+const postBarangK = async () => {
+  const dataToSend = {
+    ...formData,
+    id: barangKeluar.length + 1,
+    jumlah: Number(formData.jumlah),
+    harga: Number(formData.harga),
+  };
+  try {
+    const response = await axios.post('http://localhost:5000/api/BarangKeluar', dataToSend);
+    console.log('Data posted successfully:', response.data);
+  } catch (error) {
+    console.error('Error posting data:', error);
+  }
+};
+
+
+const deleteBarangM = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/BarangMasuk/${id}`);
+    console.log('Data deleted successfully');
+  } catch (error) {
+    console.error('Error deleting data:', error);
+  }
+};
+
+
+const deleteBarangK = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/BarangKeluar/${id}`);
+    console.log('Data deleted successfully');
+  } catch (error) {
+    console.error('Error deleting data:', error);
+  }
+};
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('http://localhost:5000/api/Category');
+  //       setCategory(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const tambahBarangMasuk = () => {
+    postBarangM();
     setBarangMasuk([...barangMasuk, { ...formData, id: Date.now() }]);
     setFormData({ nama: "", jumlah: "", harga: "", keterangan: "" });
   };
 
   const tambahBarangKeluar = () => {
+    postBarangK();
     setBarangKeluar([...barangKeluar, { ...formData, id: Date.now() }]);
     setFormData({ nama: "", jumlah: "", harga: "", keterangan: "" });
   };
 
   const hapusBarang = (id, type) => {
     if (type === "masuk") {
+      deleteBarangM(id);
       setBarangMasuk(barangMasuk.filter((item) => item.id !== id));
     } else {
+      deleteBarangK(id);
       setBarangKeluar(barangKeluar.filter((item) => item.id !== id));
     }
   };
@@ -49,14 +157,20 @@ function AdminPage() {
           <h4 className="mb-3" style={{color:"white"}}>Tambah Data</h4>
           <div className="row g-3">
             <div className="col-md-4">
-              <input
-                type="text"
-                className="form-control"
-                name="nama"
-                placeholder="Nama Barang"
-                value={formData.nama}
-                onChange={handleChange}
-              />
+               <select 
+                 name="nama" 
+                 id="nama" 
+                 className="form-select" 
+                 value={formData.nama} 
+                 onChange={handleChange}
+               >
+                <option value="" disabled>Pilih Produk...</option>
+                
+                {produk.map(product => (
+                  <option key={product.id} value={product.name}>{product.name}</option>
+                ))}
+                
+               </select>
             </div>
             <div className="col-md-1">
               <input

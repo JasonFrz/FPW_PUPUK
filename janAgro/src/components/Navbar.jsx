@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Navbar.css';
 
 function Navbar({ currentPage, onNavigate }) {
@@ -77,32 +77,33 @@ function Navbar({ currentPage, onNavigate }) {
 
           <li className="profile-item">
             <button 
-              onClick={() => handleNavClick('profile')}
+              onClick={toggleProfileDropdown}
               className={currentPage === 'profile' ? 'active' : ''}
             >
               👤 Profile
             </button>
-            <div className="profile-dropdown">
-              <button className="dropdown-toggle" onClick={toggleProfileDropdown}>
-                <img src="src/image/down.png" alt="" width="18px" height="18px"/>
-              </button>
-              {isProfileDropdownOpen && (
-                <div className="dropdown-menu">
-                  <button 
-                    onClick={() => handleNavClick('login')}
-                    className="dropdown-item"
-                  >
-                    🔐 Login
-                  </button>
-                  <button 
-                    onClick={() => handleNavClick('register')}
-                    className="dropdown-item"
-                  >
-                    Register
-                  </button>
-                </div>
-              )}
-            </div>
+            {isProfileDropdownOpen && (
+              <div className="profile-dropdown fullscreen-dropdown">
+                <button 
+                  onClick={() => { handleNavClick('profile'); setIsProfileDropdownOpen(false); }}
+                  className="dropdown-item"
+                >
+                  Visit Profile
+                </button>
+                <button 
+                  onClick={() => { handleNavClick('login'); setIsProfileDropdownOpen(false); }}
+                  className="dropdown-item"
+                >
+                  🔐 Login
+                </button>
+                <button 
+                  onClick={() => { handleNavClick('register'); setIsProfileDropdownOpen(false); }}
+                  className="dropdown-item"
+                >
+                  Register
+                </button>
+              </div>
+            )}
           </li>
         </ul>
       </div>
