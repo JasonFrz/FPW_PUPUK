@@ -98,7 +98,7 @@ function Shop() {
 
       {/* Header */}
       <div className="shop-header">
-        <h1>🛒 GreenGrow Shop</h1>
+        <h1>🛒 Jan Agro Nusantara Shop</h1>
         <p>Find the perfect fertilizer for your garden</p>
         <button 
           className="cart-toggle"

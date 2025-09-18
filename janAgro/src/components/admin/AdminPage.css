@@ -1,0 +1,67 @@
+.admin-page {
+  background: linear-gradient(135deg, #1a4c3e 0%, #2d7a5f 50%, #1a4c3e 100%);
+  min-height: 100vh;
+  padding-top: 4rem;
+}
+
+.card {
+  border-radius: 15px;
+  background: rgba(26, 76, 62, 0.85);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: #4ade80;
+  box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+}
+
+h1, h3 {
+  font-weight: bold;
+  color: #4ade80;
+}
+
+.table {
+ background-color: #4ade80;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background: #2d7a5f;
+  color: #d1fae5;
+}
+
+.table tbody tr:hover {
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.btn-success {
+  background: linear-gradient(45deg, #059669, #10b981);
+  border: none;
+}
+
+.btn-success:hover {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: linear-gradient(45deg, #b91c1c, #ef4444);
+  border: none;
+}
+
+.btn-danger:hover {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.btn-outline-danger:hover {
+  background: #ef4444;
+  color: white;
+}

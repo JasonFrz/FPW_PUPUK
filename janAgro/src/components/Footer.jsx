@@ -10,7 +10,7 @@ function Footer() {
         <div className="footer-section">
           <div className="footer-brand">
             <span className="footer-logo">🌱</span>
-            <h3>Jan Agro Fertilizers</h3>
+            <h3>Jan Agro Nusantara</h3>
             <p>Nurturing gardens, growing dreams</p>
           </div>
           <div className="footer-plants">
@@ -59,7 +59,7 @@ function Footer() {
       <div className="footer-bottom">
         <div className="footer-divider"></div>
         <div className="footer-bottom-content">
-          <p>&copy; {currentYear} Jan Agro Fertilizers. All rights reserved.</p>
+          <p>&copy; {currentYear} Jan Agro Nusantara. All rights reserved.</p>
           <div className="footer-links">
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Service</a>

@@ -4,13 +4,6 @@ import './Navbar.css';
 function Navbar({ currentPage, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  // const [scrollY, setScrollY] = useState(0);
-
-  // useEffect(() => {
-  //   const handleScroll = () => setScrollY(window.scrollY);
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,7 +24,7 @@ function Navbar({ currentPage, onNavigate }) {
       <div className="navbar-brand">
         <button onClick={() => handleNavClick('home')} className="brand-button">
           <img className="plant-icon" src="src/image/janAgro.png" alt="" />
-          Jan Agro Fertilizers
+          Jan Agro Nusantara
         </button>
       </div>
       <button className="navbar-toggler" onClick={toggleMenu}>
@@ -71,6 +64,17 @@ function Navbar({ currentPage, onNavigate }) {
               🌾 Services
             </button>
           </li>
+
+          {/* 🔹 Tambahan tombol Admin */}
+          <li>
+            <button
+              onClick={() => handleNavClick('admin')}
+              className={currentPage === 'admin' ? 'active' : ''}
+            >
+              ⚙️ Admin
+            </button>
+          </li>
+
           <li className="profile-item">
             <button 
               onClick={() => handleNavClick('profile')}
