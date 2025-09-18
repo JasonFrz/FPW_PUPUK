@@ -106,90 +106,91 @@ function AdminPage() {
         </div>
 
         {/* Barang Masuk */}
-        <section id="barang-masuk" className="mb-5">
-          <h3 className="text-light">📥 Barang Masuk</h3>
-          <div className="table-responsive">
-            <table className="table table-striped table-hover" >
-              <thead>
-                <tr>
-                  <th>Nama</th>
-                  <th>Jumlah</th>
-                  <th>Harga</th>
-                  <th>Keterangan</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {barangMasuk.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.nama}</td>
-                    <td>{item.jumlah}</td>
-                    <td>{item.harga}</td>
-                    <td>{item.keterangan}</td>
-                    <td>
-                      <button
-                        className="btn btn-sm btn-outline-danger"
-                        onClick={() => hapusBarang(item.id, "masuk")}
-                      >
-                        Hapus
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-                {barangMasuk.length === 0 && (
-                  <tr>
-                    <td colSpan="4" className="text-center text-muted">
-                      Belum ada data barang masuk
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </section>
+<section id="barang-masuk" className="mb-5">
+  <h3 className="text-light">📥 Barang Masuk</h3>
+  <div className="table-responsive">
+    <table className="table bg-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Jumlah</th>
+          <th>Harga</th>
+          <th>Keterangan</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {barangMasuk.map((item) => (
+          <tr key={item.id}>
+            <td>{item.nama}</td>
+            <td>{item.jumlah}</td>
+            <td>{item.harga}</td>
+            <td>{item.keterangan}</td>
+            <td>
+              <button
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => hapusBarang(item.id, "masuk")}
+              >
+                Hapus
+              </button>
+            </td>
+          </tr>
+        ))}
+        {barangMasuk.length === 0 && (
+          <tr>
+            <td colSpan="5" className="text-center text-muted">
+              Belum ada data barang masuk
+            </td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  </div>
+</section>
 
-        {/* Barang Keluar */}
-        <section id="barang-keluar">
-          <h3 className="text-light">📤 Barang Keluar</h3>
-          <div className="table-responsive">
-            <table className="table table-striped table-hover"  style={{backgroundColor:"#4ade80"}}>
-              <thead>
-                <tr>
-                  <th>Nama</th>
-                  <th>Jumlah</th>
-                  <th>Harga</th>
-                  <th>Keterangan</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {barangKeluar.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.nama}</td>
-                    <td>{item.jumlah}</td>  
-                    <td>{item.harga}</td>
-                    <td>{item.keterangan}</td>
-                    <td>
-                      <button
-                        className="btn btn-sm btn-outline-danger"
-                        onClick={() => hapusBarang(item.id, "keluar")}
-                      >
-                        Hapus
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-                {barangKeluar.length === 0 && (
-                  <tr>
-                    <td colSpan="4" className="text-center text-muted">
-                      Belum ada data barang keluar
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </section>
+{/* Barang Keluar */}
+<section id="barang-keluar">
+  <h3 className="text-light">📤 Barang Keluar</h3>
+  <div className="table-responsive">
+    <table className="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Jumlah</th>
+          <th>Harga</th>
+          <th>Keterangan</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {barangKeluar.map((item) => (
+          <tr key={item.id}>
+            <td>{item.nama}</td>
+            <td>{item.jumlah}</td>
+            <td>{item.harga}</td>
+            <td>{item.keterangan}</td>
+            <td>
+              <button
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => hapusBarang(item.id, "keluar")}
+              >
+                Hapus
+              </button>
+            </td>
+          </tr>
+        ))}
+        {barangKeluar.length === 0 && (
+          <tr>
+            <td colSpan="5" className="text-center text-muted">
+              Belum ada data barang keluar
+            </td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  </div>
+</section>
+
       </div>
     </div>
   );

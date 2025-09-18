@@ -3,11 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function AdminNavbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark admin-navbar">
-  <div className="container-fluid">
-    <a className="navbar-brand fw-bold" href="#">
-      🗄️ Admin Inventaris
-    </a>
+    <nav className="navbar navbar-expand-lg admin-navbar fixed-top">
+      <div className="container-fluid">
+        <a className="navbar-brand fw-bold text-white" href="#">
+          🗄️ Admin Inventaris
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,24 +21,24 @@ function AdminNavbar() {
         </button>
 
         <div className="collapse navbar-collapse" id="adminNavbar">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3" style={{color:"white"}}>
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center gap-3">
             <li className="nav-item">
-              <a className="nav-link" href="#barang-masuk">
+              <a className="nav-link text-white" href="#barang-masuk">
                 Barang Masuk
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#barang-keluar">
+              <a className="nav-link text-white" href="#barang-keluar">
                 Barang Keluar
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#stok">
+              <a className="nav-link text-white" href="#stok">
                 Stok Barang
               </a>
             </li>
             <li className="nav-item">
-              <a className="btn btn-sm btn-success" href="#">
+              <a className="btn btn-sm btn-success text-white px-3 py-2" href="#form">
                 + Tambah Barang
               </a>
             </li>

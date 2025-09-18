@@ -1,4 +1,50 @@
-.hans{
-    width: 100%;
-    height: 500px;
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 15px;
+  width: 400px;
+}
+
+.profile-img-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2d7a5f;
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: #2d7a5f;
+  color: white;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#fileInput {
+  display: none;
+}
+
+.profile-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-info li {
+  margin-bottom: 8px;
+  font-size: 15px;
 }

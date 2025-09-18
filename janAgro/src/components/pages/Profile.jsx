@@ -1,99 +1,76 @@
-import './Profile.css';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Profile.css";
 
 const Profile = () => {
-  const [data, setData] = useState([]);
+  const [user, setUser] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  
 
-
-
- useEffect(() => {
-    localStorage.setItem("a",selectedImage)
- },[selectedImage])
-  
-
-
+  // Fetch user data
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/Produk');
-        setData(response.data);
+        const response = await axios.get("http://localhost:5000/api/User/123"); 
+        setUser(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching user:", error);
       }
     };
-    fetchData();
+    fetchUser();
   }, []);
 
-
-
-
-
-
   return (
-    <div>
-      <h1><center>GORONG DIBUAT COKKK</center></h1>
-      <img className="hans"src="/src/image/han.jpg" alt="" />
-      <img src="/src/image/download.jpg" alt="" />
-    <br/>
+    <div className="profile-container">
+      <div className="profile-card shadow-lg p-4">
+        <div className="text-center">
+          {/* Foto profil */}
+          <div className="profile-img-container">
+            <img
+              className="profile-img"
+              src={
+                selectedImage
+                  ? URL.createObjectURL(selectedImage)
+                  : "/src/image/farmer.png"
+              }
+              alt="Profile"
+            />
+            <label htmlFor="fileInput" className="upload-btn">
+              📷 Ubah Foto
+            </label>
+            <input
+              id="fileInput"
+              type="file"
+              accept="image/*"
+              onChange={(e) => setSelectedImage(e.target.files[0])}
+            />
+          </div>
 
-      {selectedImage && (
-        
-        <div>
-          <h2>The Image:</h2>
-          {/* Display the selected image */}
-          <img
-            alt="not found"
-            width={"250px"}
-            src={URL.createObjectURL(selectedImage)}
-          />
-          <br /> <br />
-          {/* Button to remove the selected image */}
-          <button onClick={() => setSelectedImage(null)}>Remove</button>
+          <h2 className="mt-3">{user ? user.name : "Loading..."}</h2>
+          <p className="text-muted">{user ? user.email : "..."}</p>
         </div>
-      )}
 
-      <br />
-      <h2>Pilih Gambar</h2>
-     <input
-        type="file"
-        name="myImage"
-        // Event handler to capture file selection and update the state
-        onChange={(event) => {
-          console.log(event.target.files[0]); // Log the selected file
-          setSelectedImage(event.target.files[0]); // Update the state with the selected file
-        }}
-      />
-
-
-      <div>
-        <h1>List of Items</h1>
-        <ul>
-          {data.length > 0 ? (
-            data.map(item => (
-              <li key={item._id}>
-                {item.name}
-                {item.category}
-                {item.price}
-                {item.image}
-                {item.description}
-                {item.rating}
-                {item.inStock}
-                </li>
-              
-            ))
+        {/* Info user */}
+        <div className="profile-info mt-4">
+          <h4>Detail User</h4>
+          {user ? (
+            <ul>
+              <li><b>Username:</b> {user.username}</li>
+              <li><b>Category:</b> {user.category}</li>
+              <li><b>Phone:</b> {user.phone}</li>
+              <li><b>Address:</b> {user.address}</li>
+            </ul>
           ) : (
-            <p>No data to display.</p>
+            <p>Memuat data...</p>
           )}
-        </ul>
+        </div>
+
+        {/* Tombol aksi */}
+        <div className="text-center mt-4">
+          <button className="btn btn-success px-4">💾 Simpan Perubahan</button>
+        </div>
       </div>
-
     </div>
+  );
+};
 
-    
-  )
-}
-
-export default Profile
+export default Profile;

@@ -9,7 +9,6 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Footer from "./components/Footer";
 
-// Halaman admin
 import AdminPage from "./components/admin/AdminPage";
 
 import "./App.css";
@@ -65,46 +64,7 @@ function App() {
           </div>
         );
 
-      case "contact":
-        return (
-          <div
-            style={{
-              padding: "4rem 2rem",
-              textAlign: "center",
-              background: "linear-gradient(135deg, #1a4c3e 0%, #2d7a5f 100%)",
-              minHeight: "100vh",
-              color: "#d1fae5",
-            }}
-          >
-            <h1
-              style={{
-                color: "#4ade80",
-                fontSize: "3rem",
-                marginBottom: "2rem",
-              }}
-            >
-              📞 Contact Us
-            </h1>
-            <p style={{ fontSize: "1.3rem", marginBottom: "2rem" }}>
-              Get in touch with our gardening experts!
-            </p>
-            <div
-              style={{
-                fontSize: "1.2rem",
-                maxWidth: "600px",
-                margin: "0 auto",
-              }}
-            >
-              <p style={{ marginBottom: "1rem" }}>
-                📧 janagronusantara@gmail.com
-              </p>
-              <p style={{ marginBottom: "1rem" }}>📱 +62 811 762 788</p>
-              <p style={{ marginBottom: "1rem" }}>🏪 Surabaya, Jawa Timur</p>
-            </div>
-            <div style={{ fontSize: "3rem", marginTop: "2rem" }}>🌱🌿🍀</div>
-          </div>
-        );
-
+      
       default:
         return <HomepageContent />;
     }

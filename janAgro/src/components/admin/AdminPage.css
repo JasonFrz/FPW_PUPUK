@@ -21,8 +21,7 @@ h1, h3 {
   color: #4ade80;
 }
 
-.table {
- background-color: #4ade80;
+.table { 
   border-radius: 10px;
   overflow: hidden;
 }
