@@ -24,8 +24,9 @@ function Navbar({ currentPage, onNavigate }) {
       <nav className="navbar">
         <div className="navbar-brand">
           <button onClick={() => handleNavClick('home')} className="brand-button">
-            <div className="plant-icon">🌿</div>
-            Jan Agro Nusantara
+            
+            <img src="/src/image/janAgro.png" alt="" style={{width:"50px", height:"50px"}}/>
+          
           </button>
         </div>
         <button className="navbar-toggler" onClick={toggleMenu}>
