@@ -1,4 +1,4 @@
-/* Navbar Styles */
+/* === Navbar Styles === */
 .navbar {
   background: rgba(26, 76, 62, 0.95);
   backdrop-filter: blur(10px);
@@ -7,9 +7,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: relative; /* supaya panel bisa muncul di bawahnya */
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
   border-bottom: 2px solid #4ade80;
   transition: all 0.3s ease;
   width: 100%;
@@ -38,6 +38,10 @@
   animation: grow 2s infinite ease-in-out;
   width: 50px;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
 }
 
 @keyframes grow {
@@ -95,91 +99,60 @@
   border: 1px solid #4ade80;
 }
 
-.navbar-links button:focus {
-  outline: 2px solid #4ade80;
-  outline-offset: 2px;
-}
-
-/* Profile Dropdown Styles */
-.profile-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.profile-dropdown {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dropdown-toggle:hover {
-  background: rgba(74, 222, 128, 0.2);
-  transform: scale(1.1);
-}
-
-.dropdown-menu {
+/* === Profile Dropdown Panel (setengah layar) === */
+.profile-dropdown-panel {
   position: absolute;
-  top: 100%;
+  top: 70px; /* di bawah navbar */
   right: 0;
-  background: rgba(26, 76, 62, 0.98);
-  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 50vh; /* setengah layar */
+  background: linear-gradient(135deg, #1a4c3e, #2d7a5f);
+  border-top: 2px solid #4ade80;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  z-index: 1999;
+}
+
+.profile-dropdown-panel.active {
+  transform: translateY(0);
+}
+
+.profile-title {
+  color: #4ade80;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.profile-buttons button {
+  background: rgba(26, 76, 62, 0.9);
   border: 1px solid #4ade80;
   border-radius: 10px;
-  padding: 0.5rem 0;
-  min-width: 120px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1001;
-  animation: dropdownFadeIn 0.3s ease;
-}
-
-@keyframes dropdownFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.dropdown-item {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background: none;
-  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
   color: white;
   cursor: pointer;
-  font-size: 1rem;
-  text-align: left;
-  border-radius: 0;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.dropdown-item:hover {
+.profile-buttons button:hover {
   background: rgba(74, 222, 128, 0.2);
   color: #4ade80;
-  transform: none;
+  transform: translateY(-2px);
 }
 
-/* Mobile Responsive */
+/* === Mobile Responsive === */
 @media (max-width: 768px) {
   .navbar-toggler {
     display: block;
@@ -212,30 +185,6 @@
     width: 100%;
     text-align: left;
   }
-
-  .profile-item {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .profile-dropdown {
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 2rem;
-  }
-
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-    border-top: 1px solid rgba(74, 222, 128, 0.3);
-    margin-top: 0.5rem;
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  .dropdown-item {
-    padding: 1rem 2rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -245,5 +194,22 @@
   
   .brand-button {
     font-size: 1.5rem;
+  }
+
+  .profile-dropdown-panel {
+    height: 60vh; /* lebih tinggi di HP kecil */
+  }
+
+  .profile-title {
+    font-size: 1.2rem;
+  }
+
+  .profile-buttons {
+    flex-direction: column;
+  }
+
+  .profile-buttons button {
+    width: 100%;
+    text-align: center;
   }
 }
