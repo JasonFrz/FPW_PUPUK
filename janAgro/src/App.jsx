@@ -22,6 +22,7 @@ function App() {
         return <Login onNavigate={handleNavigate} />;
       case 'register':
         return <Register onNavigate={handleNavigate} />;
+       
       case 'shop':
         return <Shop />;
       case 'about':
@@ -39,15 +40,15 @@ function App() {
           <h1 style={{ color: '#4ade80', fontSize: '3rem', marginBottom: '2rem' }}>📞 Contact Us</h1>
           <p style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>Get in touch with our gardening experts!</p>
           <div style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-            <p style={{ marginBottom: '1rem' }}>📧 info@greengrow.com</p>
-            <p style={{ marginBottom: '1rem' }}>📱 +1 (555) 123-GROW</p>
-            <p style={{ marginBottom: '1rem' }}>🏪 123 Garden Street, Green Valley</p>
+            <p style={{ marginBottom: '1rem' }}>📧 janagronusantara@gmail.com</p>
+            <p style={{ marginBottom: '1rem' }}>📱 +62 811 762 788</p>
+            <p style={{ marginBottom: '1rem' }}>🏪 Surabaya, JawaTimur</p>
           </div>
           <div style={{ fontSize: '3rem', marginTop: '2rem' }}>🌱🌿🍀</div>
         </div>;
       default:
-        //return <HomepageContent />;
-        return <Shop />;
+      return <HomepageContent />;
+        
     }
   };
 

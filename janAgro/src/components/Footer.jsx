@@ -43,9 +43,9 @@ function Footer() {
         <div className="footer-section">
           <h4>📞 Contact</h4>
           <div className="footer-contact">
-            <p>📧 info@greengrow.com</p>
-            <p>📱 +1 (555) 123-GROW</p>
-            <p>🏪 123 Garden Street, Green Valley</p>
+            <p>📧 janagronusantara@gmail.com</p>
+            <p>📱 +62 811 762 788</p>
+            <p>🏪 Surabaya, JawaTimur</p>
           </div>
           <div className="social-links">
             <a href="#facebook" className="social-link">📘</a>

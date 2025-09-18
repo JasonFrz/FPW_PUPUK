@@ -163,15 +163,15 @@ function HomepageContent() {
               <div className="contact-details">
                 <div className="contact-item">
                   <span className="contact-icon">📧</span>
-                  <span>info@greengrow.com</span>
+                  <span>janagronusantara@gmail.com</span>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>
-                  <span>+1 (555) 123-GROW</span>
+                  <span>+62 811 762 788</span>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">🏪</span>
-                  <span>123 Garden Street, Green Valley</span>
+                  <span>Surabaya, JawaTimur</span>
                 </div>
               </div>
             </div>
