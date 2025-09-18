@@ -9,6 +9,7 @@ function AdminPage() {
   const [formData, setFormData] = useState({
     nama: "",
     jumlah: "",
+    harga: "",
     keterangan: "",
   });
 
@@ -18,12 +19,12 @@ function AdminPage() {
 
   const tambahBarangMasuk = () => {
     setBarangMasuk([...barangMasuk, { ...formData, id: Date.now() }]);
-    setFormData({ nama: "", jumlah: "", keterangan: "" });
+    setFormData({ nama: "", jumlah: "", harga: "", keterangan: "" });
   };
 
   const tambahBarangKeluar = () => {
     setBarangKeluar([...barangKeluar, { ...formData, id: Date.now() }]);
-    setFormData({ nama: "", jumlah: "", keterangan: "" });
+    setFormData({ nama: "", jumlah: "", harga: "", keterangan: "" });
   };
 
   const hapusBarang = (id, type) => {
@@ -57,13 +58,23 @@ function AdminPage() {
                 onChange={handleChange}
               />
             </div>
-            <div className="col-md-3">
+            <div className="col-md-1">
               <input
                 type="number"
                 className="form-control"
                 name="jumlah"
-                placeholder="Jumlah"
+                placeholder="QTY"
                 value={formData.jumlah}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-2">
+              <input
+                type="number"   
+                className="form-control"
+                name="harga"
+                placeholder="Harga"
+                value={formData.harga}
                 onChange={handleChange}
               />
             </div>
@@ -103,6 +114,7 @@ function AdminPage() {
                 <tr>
                   <th>Nama</th>
                   <th>Jumlah</th>
+                  <th>Harga</th>
                   <th>Keterangan</th>
                   <th>Aksi</th>
                 </tr>
@@ -112,6 +124,7 @@ function AdminPage() {
                   <tr key={item.id}>
                     <td>{item.nama}</td>
                     <td>{item.jumlah}</td>
+                    <td>{item.harga}</td>
                     <td>{item.keterangan}</td>
                     <td>
                       <button
@@ -144,6 +157,7 @@ function AdminPage() {
                 <tr>
                   <th>Nama</th>
                   <th>Jumlah</th>
+                  <th>Harga</th>
                   <th>Keterangan</th>
                   <th>Aksi</th>
                 </tr>
@@ -152,7 +166,8 @@ function AdminPage() {
                 {barangKeluar.map((item) => (
                   <tr key={item.id}>
                     <td>{item.nama}</td>
-                    <td>{item.jumlah}</td>
+                    <td>{item.jumlah}</td>  
+                    <td>{item.harga}</td>
                     <td>{item.keterangan}</td>
                     <td>
                       <button
