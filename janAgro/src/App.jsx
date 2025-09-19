@@ -8,16 +8,17 @@ import Profile from "./components/pages/Profile";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Footer from "./components/Footer";
-
 import AdminPage from "./components/admin/AdminPage";
 
-import "./App.css";
+import "./App.css"; // Pastikan file ini diimpor
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
 
   const handleNavigate = (page) => {
     setCurrentPage(page);
+    // Gulir ke atas halaman saat navigasi
+    window.scrollTo(0, 0);
   };
 
   const renderPage = () => {
@@ -34,7 +35,6 @@ function App() {
         return <Profile />;
       case "admin":
         return <AdminPage onNavigate={handleNavigate} />;
-
       case "services":
         return (
           <div
@@ -46,13 +46,7 @@ function App() {
               color: "#d1fae5",
             }}
           >
-            <h1
-              style={{
-                color: "#4ade80",
-                fontSize: "3rem",
-                marginBottom: "2rem",
-              }}
-            >
+            <h1 style={{ color: "#4ade80", fontSize: "3rem", marginBottom: "2rem" }}>
               🌾 Our Services
             </h1>
             <p style={{ fontSize: "1.3rem", marginBottom: "2rem" }}>
@@ -63,20 +57,32 @@ function App() {
             </div>
           </div>
         );
-
-      
       default:
-        return <HomepageContent/>;
+        // Tidak perlu meneruskan props di sini karena Navbar dipanggil di luar
+        return <HomepageContent />;
     }
   };
 
   return (
     <div className="App">
-      {/* Navbar bisa disembunyikan di halaman admin */}
+      {/* Navbar dirender di luar konten halaman */}
       {currentPage !== "admin" && (
-        <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
+        <Navbar
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
+          isTransparent={currentPage === "home"} // Prop untuk mengontrol transparansi
+        />
       )}
-      {renderPage()}
+
+      {/* 
+        Bungkus renderPage dengan div. 
+        Beri kelas 'content-wrapper' hanya jika BUKAN di homepage.
+        Ini akan mendorong konten ke bawah navbar di halaman lain.
+      */}
+      <div className={currentPage === 'home' ? '' : 'content-wrapper'}>
+        {renderPage()}
+      </div>
+
       {currentPage !== "admin" && <Footer />}
     </div>
   );

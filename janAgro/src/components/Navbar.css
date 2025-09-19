@@ -1,18 +1,42 @@
-/* === Navbar Styles === */
 .navbar {
-  background: rgba(26, 76, 62, 0.95);
-  backdrop-filter: blur(10px);
+  background: #1a4c3e; 
   color: white;
   padding: 0.5rem 2rem;
   display: flex;
-  justify-content: space-between; /* kiri-kanan */
+  justify-content: center; /* biar container di tengah */
   align-items: center;
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 2000;
-  border-bottom: 2px solid #4ade80;
   transition: all 0.3s ease;
   width: 100%;
+}
+
+.navbar::after {
+  content: ''; 
+  position: absolute;
+  bottom: 0;
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 90%; 
+  height: 2px; 
+  background-color: #4ade80; 
+}
+
+/* === WRAPPER === */
+.navbar-container {
+  width: 100%;
+  max-width: 1200px; /* Batas lebar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Transparan */
+.navbar.navbar-transparent {
+  position: absolute;
+  background: transparent;
+  border-bottom-color: rgba(74, 222, 128, 0.5);
 }
 
 .brand-button {
@@ -21,7 +45,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-right: 1rem; /* biar ga terlalu kiri */
+  margin-right: 1rem;
 }
 
 .brand-logo {
@@ -33,7 +57,6 @@
   color: #4ade80;
   transform: scale(1.05);
 }
-
 
 .plant-icon {
   animation: grow 2s infinite ease-in-out;
@@ -86,6 +109,7 @@
   border: none;
   cursor: pointer;
   font-family: inherit;
+  font-weight: bold;
 }
 
 .navbar-links button:hover {
@@ -100,48 +124,77 @@
   border: 1px solid #4ade80;
 }
 
-/* === Profile Dropdown Panel (setengah layar) === */
+.navbar.white-bg {
+  background: white;
+}
+
+.navbar.white-bg .navbar-links button {
+  color: #333;
+}
+
+.navbar.white-bg .navbar-links button:hover {
+  color: #1a4c3e;
+  background: rgba(74, 222, 128, 0.2);
+}
+
+.navbar.white-bg .navbar-links button.active {
+  color: #1a4c3e;
+  border-color: #1a4c3e;
+}
+
 .profile-dropdown-panel {
-  position: absolute;
-  top: 70px; /* di bawah navbar */
+  position: fixed; 
+  top: 72px; 
   right: 0;
   width: 100%;
-  height: 50vh; /* setengah layar */
-  background: linear-gradient(135deg, #1a4c3e, #2d7a5f);
+  height: 50vh; 
+  background: rgba(26, 76, 62, 0.95); 
+  backdrop-filter: blur(10px); 
   border-top: 2px solid #4ade80;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  transform: translateY(-120%); 
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
+  justify-content: center; 
+  padding: 2rem;
   z-index: 1999;
+  overflow: hidden; 
 }
 
 .profile-dropdown-panel.active {
-  transform: translateY(0);
+  transform: translateY(0); 
+}
+
+.profile-dropdown-panel.white-bg {
+  background: white;
+  backdrop-filter: none; 
 }
 
 .profile-title {
   color: #4ade80;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
+}
+
+.profile-dropdown-panel.white-bg .profile-title {
+  color: #333;
 }
 
 .profile-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .profile-buttons button {
-  background: rgba(26, 76, 62, 0.9);
+  background: transparent;
   border: 1px solid #4ade80;
   border-radius: 10px;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -150,8 +203,20 @@
 .profile-buttons button:hover {
   background: rgba(74, 222, 128, 0.2);
   color: #4ade80;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
+
+.profile-dropdown-panel.white-bg .profile-buttons button {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.profile-dropdown-panel.white-bg .profile-buttons button:hover {
+  background: #e0e0e0;
+  color: #1a4c3e;
+}
+
 
 /* === Mobile Responsive === */
 @media (max-width: 768px) {
@@ -168,6 +233,10 @@
     background: rgba(26, 76, 62, 0.98);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
+  }
+  
+  .navbar.white-bg .navbar-links {
+     background: white;
   }
 
   .navbar-links.active {
@@ -198,15 +267,16 @@
   }
 
   .profile-dropdown-panel {
-    height: 60vh; /* lebih tinggi di HP kecil */
+    height: 60vh;
   }
 
   .profile-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .profile-buttons {
     flex-direction: column;
+    width: 80%;
   }
 
   .profile-buttons button {

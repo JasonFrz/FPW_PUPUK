@@ -8,6 +8,7 @@
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
+  
   overflow-x: hidden;
 }
 
@@ -49,12 +50,17 @@ a:focus {
   outline-offset: 2px;
 }
 
-::selection {
-  background: rgba(74, 222, 128, 0.3);
-  color: #1a4c3e;
-}
+
 
 ::-moz-selection {
   background: rgba(74, 222, 128, 0.3);
   color: #1a4c3e;
+}
+
+.content-wrapper {
+  padding-top: 72px; /* Sesuaikan dengan tinggi navbar Anda (misal: 60px padding + 2px border + 10px margin) */
+}
+
+.App {
+  text-align: center;
 }

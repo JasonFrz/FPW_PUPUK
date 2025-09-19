@@ -1,7 +1,8 @@
+// src/components/Navbar.jsx
 import { useState } from 'react';
 import './Navbar.css';
 
-function Navbar({ currentPage, onNavigate }) {
+function Navbar({ currentPage, onNavigate, isTransparent }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileSlideOpen, setIsProfileSlideOpen] = useState(false);
 
@@ -19,14 +20,19 @@ function Navbar({ currentPage, onNavigate }) {
     setIsProfileSlideOpen(false);
   };
 
+  // Membuat string kelas yang dinamis dan bersih
+  const navClasses = [
+    'navbar',
+    isTransparent ? 'navbar-transparent' : '',
+    isProfileSlideOpen ? 'white-bg' : ''
+  ].filter(Boolean).join(' ');
+
   return (
     <>
-      <nav className="navbar">
+      <nav className={navClasses} >
         <div className="navbar-brand">
           <button onClick={() => handleNavClick('home')} className="brand-button">
-            
-            <img src="/src/image/janAgro.png" alt="" style={{width:"50px", height:"50px"}}/>
-          
+            <img src="/src/image/janAgro.png" alt="Jan Agro Logo" style={{width:"50px", height:"50px"}}/>
           </button>
         </div>
         <button className="navbar-toggler" onClick={toggleMenu}>
@@ -63,8 +69,7 @@ function Navbar({ currentPage, onNavigate }) {
         </div>
       </nav>
 
-      {/* Profile Panel (setengah layar) */}
-      <div className={`profile-dropdown-panel ${isProfileSlideOpen ? 'active' : ''}`}>
+      <div className={`profile-dropdown-panel ${isProfileSlideOpen ? 'active white-bg' : ''}`}>
         <h2 className="profile-title">Selamat Datang!</h2>
         <div className="profile-buttons">
           <button onClick={() => handleNavClick('login')}>🔐 Masuk</button>
